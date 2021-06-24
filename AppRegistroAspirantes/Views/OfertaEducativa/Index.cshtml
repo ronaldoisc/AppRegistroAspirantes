@@ -1,0 +1,34 @@
+﻿
+@using AppRegistroAspirantes.Models
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Controller = "OfertaEducativa";
+    ViewBag.Action = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<CarrerasModel> listaCarreras = (List<CarrerasModel>)ViewBag.listaCarreras;
+}
+
+<h1 class="h4 font-weight-bold mb-2 text-gray-800">Oferta educativa</h1>
+<hr class="my-3" />
+
+<div class="row">
+    @foreach (CarrerasModel carreras in listaCarreras)
+    {
+
+        <div class="col-sm-3">
+            <div class="card mb-3">
+                <img src="@Url.Action("GetImg", "OfertaEducativa", new { id = carreras.Id})" class="card-img-top rounded-start" alt="..." height="200">
+                <div class="card-body">
+                    <h5 class="card-title">@carreras.Nombre</h5>
+                    <p class="card-text" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">@carreras.Descripcion</p>
+                    @*<a href="#"><small class="text-muted">Continuar Leyendo...</small></a>*@
+                    <div class="row justify-content-end mr-2 mt-2">
+                        <a href="#" class="btn btn-outline-primary btn-sm">Editar Carrera</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,143 @@
+﻿
+@using AppRegistroAspirantes.Models
+@using AppRegistroAspirantes.Helpers
+@model CampusModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<SelectListItem> paises = Helpers.ObtenerPaises();
+    List<SelectListItem> bancos = Helpers.ObtenerBancos();
+    ICollection<ModelState> values = (ICollection<ModelState>)ViewBag.error;
+}
+
+
+
+<div class="mb-5 mt-3 card">
+    <div class="card-body p-md-5 rounded-top">
+        <h1 class="h4 font-weight-bold mb-2 text-gray-800">Registrar un nuevo campus</h1>
+        <hr class="my-3" />
+        @using (Html.BeginForm("Crear", "Campus", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Nombre)
+                        @Html.TextBoxFor(p => p.Nombre, new { @class = "form-control" })
+                        @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Correo)
+                        @Html.TextBoxFor(p => p.Correo, new { @class = "form-control" })
+                        @Html.ValidationMessage("Correo", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Telefono)
+                        @Html.TextBoxFor(p => p.Telefono, new { @class = "form-control" })
+                        @Html.ValidationMessage("Telefono", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        <label>País</label>
+                        <select id="paises" class="form-control">
+                            <option value="">--Seleccione el país--</option>
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.CodigoPostal)
+                        @Html.TextBoxFor(p => p.CodigoPostal, new { @class = "form-control", id = "codigoPostal" })
+                        @Html.ValidationMessage("CodigoPostal", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.IdLocalidad)
+                        <select id="localidades" class="form-control" name="IdLocalidad">
+                            <option value="">--Seleccione la localidad--</option>
+                        </select>
+                        @Html.ValidationMessage("IdLocalidad", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Calle)
+                        @Html.TextBoxFor(p => p.Calle, new { @class = "form-control" })
+                        @Html.ValidationMessage("Calle", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.NoExt)
+                        @Html.TextBoxFor(p => p.NoExt, new { @class = "form-control" })
+                        @Html.ValidationMessage("NoExt", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.NoInt)
+                        @Html.TextBoxFor(p => p.NoInt, new { @class = "form-control" })
+                        @Html.ValidationMessage("NoInt", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Colonia)
+                        @Html.TextBoxFor(p => p.Colonia, new { @class = "form-control" })
+                        @Html.ValidationMessage("Telefono", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.UrlCampus)
+                        @Html.TextBoxFor(p => p.UrlCampus, new { @class = "form-control" })
+                        @Html.ValidationMessage("UrlCampus", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.IdBanco)
+                        @Html.DropDownList("IdBanco", bancos, new { @class = "form-control" })
+                        @Html.ValidationMessage("IdBanco", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.NombreCuenta)
+                        @Html.TextBoxFor(p => p.NombreCuenta, new { @class = "form-control" })
+                        @Html.ValidationMessage("NombreCuenta", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.NoCuenta)
+                        @Html.TextBoxFor(p => p.NoCuenta, new { @class = "form-control" })
+                        @Html.ValidationMessage("NoCuenta", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.NoConvenio)
+                        @Html.TextBoxFor(p => p.NoConvenio, new { @class = "form-control" })
+                        @Html.ValidationMessage("NoConvenio", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.ClabeInterbancaria)
+                        @Html.TextBoxFor(p => p.ClabeInterbancaria, new { @class = "form-control" })
+                        @Html.ValidationMessage("ClabeInterbancaria", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex mt-3 justify-content-end">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    const selectPaises = document.getElementById('paises');
+    const codigoPostal = document.getElementById('codigoPostal');
+    const selectLocalidades = document.getElementById('localidades');
+
+
+    $('#paises').select2({
+        placeholder: 'Selecciona un país',
+        theme: 'bootstrap'
+    });
+
+    fetch('/locacion/paises').then(response => response.json()).then(data => {
+        data.forEach(e => {
+            document.getElementById('paises').innerHTML += `<option value="${e.Id}">${e.Nombre}</option>`;
+        })
+    });
+
+    codigoPostal.addEventListener('keyup', () => {
+        selectLocalidades.innerHTML = '<option value="">--Seleccione su localidad--</option>';
+        fetch(`/locacion/localidades?codigoPostal=${codigoPostal.value}&pais=${selectPaises.value}`).then(response => response.json()).then(data => {
+            data.forEach(e => {
+                selectLocalidades.innerHTML += `<option value="${e.Id}">${e.Nombre}</option>`;
+            })
+
+        });
+    })
+</script>

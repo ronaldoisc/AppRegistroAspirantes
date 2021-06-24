@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e185aa39be174f13ac78f3ee457509a4" Name="Diagram1">
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Acciones" Width="1.5" PointX="5.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.AccionesAdministradores" Width="1.5" PointX="7.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Administradores" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Bancos" Width="1.5" PointX="0.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Campus" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.CampusCarreras" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Carreras" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Generos" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.GradosEstudio" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Localidades" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Paises" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Roles" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RegistroAspirantesModel.Solicitantes" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__AccionesA__IdAcc__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__AccionesA__IdAdm__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Administr__IdCam__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Administr__IdRol__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Campus__IdBanco__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__CampusCar__IdCam__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdCam__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__CampusCar__IdCar__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdCar__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdGen__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdGra__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Localidad__IdPai__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdLoc__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="RegistroAspirantesModel.FK__Solicitan__IdPai__4D94879B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

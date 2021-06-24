@@ -1,0 +1,40 @@
+﻿
+@using AppRegistroAspirantes.Models
+@model NuevaCarreraModel
+
+
+@{
+    ViewBag.Title = "Crear";
+    ViewBag.Controller = "OfertaEducativa";
+    ViewBag.Action = "Crear";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="my-5 mx-md-3">
+    <div class="card card-body p-md-5 shadow rounded-top">
+        <h1 class="h4 font-weight-bold mb-2 text-gray-800">Registrar nueva carrera</h1>
+        <hr class="my-3" />
+        @using (Html.BeginForm("Crear", "OfertaEducativa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="mt-3">
+                        @Html.LabelFor(c => c.Nombre)
+                        @Html.TextBoxFor(c => c.Nombre, new { @class = "form-control" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(c => c.Descripcion)
+                        @Html.TextAreaFor(c => c.Descripcion, new { @class = "form-control", @rows = "8" })
+                    </div>
+                    <div class="mt-3">
+                        @*@Html.LabelFor(c => c.Imagen)*@
+                        <input type="file" class="" name="Imagen" />
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex mt-5 justify-content-end">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,972 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RegistroAspirantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Acciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccionesAdministradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAdministrador" Type="smallint" />
+          <Property Name="IdAccion" Type="int" />
+        </EntityType>
+        <EntityType Name="Administradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Contrasenia" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="TelefonoFijo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="TelefonoCelular" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="IdCampus" Type="int" />
+          <Property Name="IdRol" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Campus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="IdLocalidad" Type="int" Nullable="false" />
+          <Property Name="Calle" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="NoExt" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NoInt" Type="varchar" MaxLength="20" />
+          <Property Name="Colonia" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="UrlCampus" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="NumAspirantes" Type="int" Nullable="false" />
+          <Property Name="IdBanco" Type="int" Nullable="false" />
+          <Property Name="NombreCuenta" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="NoCuenta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NoConvenio" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ClabeInterbancaria" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CampusCarreras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCampus" Type="int" Nullable="false" />
+          <Property Name="IdCarrera" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descripcion" Type="text" Nullable="false" />
+          <Property Name="Img" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GradosEstudio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Localidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="CodigoPostal" Type="int" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="tinyint" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="IdGenero" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+          <Property Name="CURP" Type="varchar" MaxLength="18" />
+          <Property Name="Foto" Type="varbinary(max)" Nullable="false" />
+          <Property Name="IdPais" Type="int" Nullable="false" />
+          <Property Name="IdLocalidad" Type="int" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="TelefonoFijo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="TelefonoCelular" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="IdGradoEstudios" Type="tinyint" Nullable="false" />
+          <Property Name="EscuelaProcedencia" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="IdCampus" Type="int" Nullable="false" />
+          <Property Name="IdCarrera" Type="int" Nullable="false" />
+          <Property Name="Identificacion" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CertificadoBachillerato" Type="varbinary(max)" Nullable="false" />
+          <Property Name="EstatusPago" Type="bit" />
+        </EntityType>
+        <Association Name="FK__AccionesA__IdAcc__5FB337D6">
+          <End Role="Acciones" Type="Self.Acciones" Multiplicity="0..1" />
+          <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccionesAdministradores">
+              <PropertyRef Name="IdAccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccionesA__IdAdm__5EBF139D">
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="0..1" />
+          <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administradores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccionesAdministradores">
+              <PropertyRef Name="IdAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Administr__IdCam__59063A47">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="0..1" />
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Administr__IdRol__59FA5E80">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Campus__IdBanco__412EB0B6">
+          <End Role="Bancos" Type="Self.Bancos" Multiplicity="1" />
+          <End Role="Campus" Type="Self.Campus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bancos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Campus">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CampusCar__IdCam__44FF419A">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
+          <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampusCarreras">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CampusCar__IdCar__45F365D3">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
+          <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampusCarreras">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Localidad__IdPai__398D8EEE">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Localidades" Type="Self.Localidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Localidades">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdCam__5070F446">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdCar__5165187F">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdGen__4CA06362">
+          <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdGra__4F7CD00D">
+          <End Role="GradosEstudio" Type="Self.GradosEstudio" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GradosEstudio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdGradoEstudios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdLoc__4E88ABD4">
+          <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdPai__4D94879B">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegistroAspirantesModelStoreContainer">
+          <EntitySet Name="Acciones" EntityType="Self.Acciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccionesAdministradores" EntityType="Self.AccionesAdministradores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Administradores" EntityType="Self.Administradores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bancos" EntityType="Self.Bancos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campus" EntityType="Self.Campus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampusCarreras" EntityType="Self.CampusCarreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Generos" EntityType="Self.Generos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GradosEstudio" EntityType="Self.GradosEstudio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Localidades" EntityType="Self.Localidades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitantes" EntityType="Self.Solicitantes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AccionesA__IdAcc__5FB337D6" Association="Self.FK__AccionesA__IdAcc__5FB337D6">
+            <End Role="Acciones" EntitySet="Acciones" />
+            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccionesA__IdAdm__5EBF139D" Association="Self.FK__AccionesA__IdAdm__5EBF139D">
+            <End Role="Administradores" EntitySet="Administradores" />
+            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Administr__IdCam__59063A47" Association="Self.FK__Administr__IdCam__59063A47">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Administr__IdRol__59FA5E80" Association="Self.FK__Administr__IdRol__59FA5E80">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Campus__IdBanco__412EB0B6" Association="Self.FK__Campus__IdBanco__412EB0B6">
+            <End Role="Bancos" EntitySet="Bancos" />
+            <End Role="Campus" EntitySet="Campus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CampusCar__IdCam__44FF419A" Association="Self.FK__CampusCar__IdCam__44FF419A">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="CampusCarreras" EntitySet="CampusCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CampusCar__IdCar__45F365D3" Association="Self.FK__CampusCar__IdCar__45F365D3">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="CampusCarreras" EntitySet="CampusCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Localidad__IdPai__398D8EEE" Association="Self.FK__Localidad__IdPai__398D8EEE">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Localidades" EntitySet="Localidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdCam__5070F446" Association="Self.FK__Solicitan__IdCam__5070F446">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdCar__5165187F" Association="Self.FK__Solicitan__IdCar__5165187F">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdGen__4CA06362" Association="Self.FK__Solicitan__IdGen__4CA06362">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdGra__4F7CD00D" Association="Self.FK__Solicitan__IdGra__4F7CD00D">
+            <End Role="GradosEstudio" EntitySet="GradosEstudio" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdLoc__4E88ABD4" Association="Self.FK__Solicitan__IdLoc__4E88ABD4">
+            <End Role="Localidades" EntitySet="Localidades" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdPai__4D94879B" Association="Self.FK__Solicitan__IdPai__4D94879B">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegistroAspirantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Acciones">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AccionesAdministradores" Relationship="Self.FK__AccionesA__IdAcc__5FB337D6" FromRole="Acciones" ToRole="AccionesAdministradores" />
+        </EntityType>
+        <EntityType Name="AccionesAdministradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAdministrador" Type="Int16" />
+          <Property Name="IdAccion" Type="Int32" />
+          <NavigationProperty Name="Acciones" Relationship="Self.FK__AccionesA__IdAcc__5FB337D6" FromRole="AccionesAdministradores" ToRole="Acciones" />
+          <NavigationProperty Name="Administradores" Relationship="Self.FK__AccionesA__IdAdm__5EBF139D" FromRole="AccionesAdministradores" ToRole="Administradores" />
+        </EntityType>
+        <EntityType Name="Administradores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoFijo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoCelular" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdCampus" Type="Int32" />
+          <Property Name="IdRol" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="AccionesAdministradores" Relationship="Self.FK__AccionesA__IdAdm__5EBF139D" FromRole="Administradores" ToRole="AccionesAdministradores" />
+          <NavigationProperty Name="Campus" Relationship="Self.FK__Administr__IdCam__59063A47" FromRole="Administradores" ToRole="Campus" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK__Administr__IdRol__59FA5E80" FromRole="Administradores" ToRole="Roles" />
+        </EntityType>
+        <EntityType Name="Bancos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Campus" Relationship="Self.FK__Campus__IdBanco__412EB0B6" FromRole="Bancos" ToRole="Campus" />
+        </EntityType>
+        <EntityType Name="Campus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoExt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoInt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Colonia" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UrlCampus" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumAspirantes" Type="Int32" Nullable="false" />
+          <Property Name="IdBanco" Type="Int32" Nullable="false" />
+          <Property Name="NombreCuenta" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoCuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NoConvenio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClabeInterbancaria" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administradores" Relationship="Self.FK__Administr__IdCam__59063A47" FromRole="Campus" ToRole="Administradores" />
+          <NavigationProperty Name="Bancos" Relationship="Self.FK__Campus__IdBanco__412EB0B6" FromRole="Campus" ToRole="Bancos" />
+          <NavigationProperty Name="CampusCarreras" Relationship="Self.FK__CampusCar__IdCam__44FF419A" FromRole="Campus" ToRole="CampusCarreras" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdCam__5070F446" FromRole="Campus" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="CampusCarreras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCampus" Type="Int32" Nullable="false" />
+          <Property Name="IdCarrera" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campus" Relationship="Self.FK__CampusCar__IdCam__44FF419A" FromRole="CampusCarreras" ToRole="Campus" />
+          <NavigationProperty Name="Carreras" Relationship="Self.FK__CampusCar__IdCar__45F365D3" FromRole="CampusCarreras" ToRole="Carreras" />
+        </EntityType>
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Img" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="CampusCarreras" Relationship="Self.FK__CampusCar__IdCar__45F365D3" FromRole="Carreras" ToRole="CampusCarreras" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdCar__5165187F" FromRole="Carreras" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="Generos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdGen__4CA06362" FromRole="Generos" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="GradosEstudio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdGra__4F7CD00D" FromRole="GradosEstudio" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="Localidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoPostal" Type="Int32" />
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK__Localidad__IdPai__398D8EEE" FromRole="Localidades" ToRole="Paises" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdLoc__4E88ABD4" FromRole="Localidades" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Localidades" Relationship="Self.FK__Localidad__IdPai__398D8EEE" FromRole="Paises" ToRole="Localidades" />
+          <NavigationProperty Name="Solicitantes" Relationship="Self.FK__Solicitan__IdPai__4D94879B" FromRole="Paises" ToRole="Solicitantes" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Byte" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Administradores" Relationship="Self.FK__Administr__IdRol__59FA5E80" FromRole="Roles" ToRole="Administradores" />
+        </EntityType>
+        <EntityType Name="Solicitantes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdGenero" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CURP" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="IdPais" Type="Int32" Nullable="false" />
+          <Property Name="IdLocalidad" Type="Int32" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoFijo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelefonoCelular" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdGradoEstudios" Type="Byte" Nullable="false" />
+          <Property Name="EscuelaProcedencia" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdCampus" Type="Int32" Nullable="false" />
+          <Property Name="IdCarrera" Type="Int32" Nullable="false" />
+          <Property Name="Identificacion" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="CertificadoBachillerato" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="EstatusPago" Type="Boolean" />
+          <NavigationProperty Name="Campus" Relationship="Self.FK__Solicitan__IdCam__5070F446" FromRole="Solicitantes" ToRole="Campus" />
+          <NavigationProperty Name="Carreras" Relationship="Self.FK__Solicitan__IdCar__5165187F" FromRole="Solicitantes" ToRole="Carreras" />
+          <NavigationProperty Name="Generos" Relationship="Self.FK__Solicitan__IdGen__4CA06362" FromRole="Solicitantes" ToRole="Generos" />
+          <NavigationProperty Name="GradosEstudio" Relationship="Self.FK__Solicitan__IdGra__4F7CD00D" FromRole="Solicitantes" ToRole="GradosEstudio" />
+          <NavigationProperty Name="Localidades" Relationship="Self.FK__Solicitan__IdLoc__4E88ABD4" FromRole="Solicitantes" ToRole="Localidades" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK__Solicitan__IdPai__4D94879B" FromRole="Solicitantes" ToRole="Paises" />
+        </EntityType>
+        <Association Name="FK__AccionesA__IdAcc__5FB337D6">
+          <End Role="Acciones" Type="Self.Acciones" Multiplicity="0..1" />
+          <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Acciones">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccionesAdministradores">
+              <PropertyRef Name="IdAccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AccionesA__IdAdm__5EBF139D">
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="0..1" />
+          <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administradores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccionesAdministradores">
+              <PropertyRef Name="IdAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Administr__IdCam__59063A47">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="0..1" />
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Administr__IdRol__59FA5E80">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Administradores">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Campus__IdBanco__412EB0B6">
+          <End Role="Bancos" Type="Self.Bancos" Multiplicity="1" />
+          <End Role="Campus" Type="Self.Campus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bancos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Campus">
+              <PropertyRef Name="IdBanco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CampusCar__IdCam__44FF419A">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
+          <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampusCarreras">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdCam__5070F446">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdCampus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CampusCar__IdCar__45F365D3">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
+          <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CampusCarreras">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdCar__5165187F">
+          <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carreras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdGen__4CA06362">
+          <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Generos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdGra__4F7CD00D">
+          <End Role="GradosEstudio" Type="Self.GradosEstudio" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GradosEstudio">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdGradoEstudios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Localidad__IdPai__398D8EEE">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Localidades" Type="Self.Localidades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Localidades">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdLoc__4E88ABD4">
+          <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Localidades">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdLocalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Solicitan__IdPai__4D94879B">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Solicitantes">
+              <PropertyRef Name="IdPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegistroAspirantesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Acciones" EntityType="Self.Acciones" />
+          <EntitySet Name="AccionesAdministradores" EntityType="Self.AccionesAdministradores" />
+          <EntitySet Name="Administradores" EntityType="Self.Administradores" />
+          <EntitySet Name="Bancos" EntityType="Self.Bancos" />
+          <EntitySet Name="Campus" EntityType="Self.Campus" />
+          <EntitySet Name="CampusCarreras" EntityType="Self.CampusCarreras" />
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+          <EntitySet Name="Generos" EntityType="Self.Generos" />
+          <EntitySet Name="GradosEstudio" EntityType="Self.GradosEstudio" />
+          <EntitySet Name="Localidades" EntityType="Self.Localidades" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" />
+          <EntitySet Name="Solicitantes" EntityType="Self.Solicitantes" />
+          <AssociationSet Name="FK__AccionesA__IdAcc__5FB337D6" Association="Self.FK__AccionesA__IdAcc__5FB337D6">
+            <End Role="Acciones" EntitySet="Acciones" />
+            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AccionesA__IdAdm__5EBF139D" Association="Self.FK__AccionesA__IdAdm__5EBF139D">
+            <End Role="Administradores" EntitySet="Administradores" />
+            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Administr__IdCam__59063A47" Association="Self.FK__Administr__IdCam__59063A47">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Administr__IdRol__59FA5E80" Association="Self.FK__Administr__IdRol__59FA5E80">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Administradores" EntitySet="Administradores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Campus__IdBanco__412EB0B6" Association="Self.FK__Campus__IdBanco__412EB0B6">
+            <End Role="Bancos" EntitySet="Bancos" />
+            <End Role="Campus" EntitySet="Campus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CampusCar__IdCam__44FF419A" Association="Self.FK__CampusCar__IdCam__44FF419A">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="CampusCarreras" EntitySet="CampusCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdCam__5070F446" Association="Self.FK__Solicitan__IdCam__5070F446">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CampusCar__IdCar__45F365D3" Association="Self.FK__CampusCar__IdCar__45F365D3">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="CampusCarreras" EntitySet="CampusCarreras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdCar__5165187F" Association="Self.FK__Solicitan__IdCar__5165187F">
+            <End Role="Carreras" EntitySet="Carreras" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdGen__4CA06362" Association="Self.FK__Solicitan__IdGen__4CA06362">
+            <End Role="Generos" EntitySet="Generos" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdGra__4F7CD00D" Association="Self.FK__Solicitan__IdGra__4F7CD00D">
+            <End Role="GradosEstudio" EntitySet="GradosEstudio" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Localidad__IdPai__398D8EEE" Association="Self.FK__Localidad__IdPai__398D8EEE">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Localidades" EntitySet="Localidades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdLoc__4E88ABD4" Association="Self.FK__Solicitan__IdLoc__4E88ABD4">
+            <End Role="Localidades" EntitySet="Localidades" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Solicitan__IdPai__4D94879B" Association="Self.FK__Solicitan__IdPai__4D94879B">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Solicitantes" EntitySet="Solicitantes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RegistroAspirantesModelStoreContainer" CdmEntityContainer="RegistroAspirantesEntities">
+          <EntitySetMapping Name="Acciones">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Acciones">
+              <MappingFragment StoreEntitySet="Acciones">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccionesAdministradores">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.AccionesAdministradores">
+              <MappingFragment StoreEntitySet="AccionesAdministradores">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+                <ScalarProperty Name="IdAccion" ColumnName="IdAccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Administradores">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Administradores">
+              <MappingFragment StoreEntitySet="Administradores">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="TelefonoFijo" ColumnName="TelefonoFijo" />
+                <ScalarProperty Name="TelefonoCelular" ColumnName="TelefonoCelular" />
+                <ScalarProperty Name="IdCampus" ColumnName="IdCampus" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bancos">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Bancos">
+              <MappingFragment StoreEntitySet="Bancos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campus">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Campus">
+              <MappingFragment StoreEntitySet="Campus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+                <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="UrlCampus" ColumnName="UrlCampus" />
+                <ScalarProperty Name="NumAspirantes" ColumnName="NumAspirantes" />
+                <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+                <ScalarProperty Name="NombreCuenta" ColumnName="NombreCuenta" />
+                <ScalarProperty Name="NoCuenta" ColumnName="NoCuenta" />
+                <ScalarProperty Name="NoConvenio" ColumnName="NoConvenio" />
+                <ScalarProperty Name="ClabeInterbancaria" ColumnName="ClabeInterbancaria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampusCarreras">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.CampusCarreras">
+              <MappingFragment StoreEntitySet="CampusCarreras">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdCampus" ColumnName="IdCampus" />
+                <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carreras">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Carreras">
+              <MappingFragment StoreEntitySet="Carreras">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Generos">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Generos">
+              <MappingFragment StoreEntitySet="Generos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GradosEstudio">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.GradosEstudio">
+              <MappingFragment StoreEntitySet="GradosEstudio">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Localidades">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Localidades">
+              <MappingFragment StoreEntitySet="Localidades">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Paises">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitantes">
+            <EntityTypeMapping TypeName="RegistroAspirantesModel.Solicitantes">
+              <MappingFragment StoreEntitySet="Solicitantes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+                <ScalarProperty Name="IdLocalidad" ColumnName="IdLocalidad" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="TelefonoFijo" ColumnName="TelefonoFijo" />
+                <ScalarProperty Name="TelefonoCelular" ColumnName="TelefonoCelular" />
+                <ScalarProperty Name="IdGradoEstudios" ColumnName="IdGradoEstudios" />
+                <ScalarProperty Name="EscuelaProcedencia" ColumnName="EscuelaProcedencia" />
+                <ScalarProperty Name="IdCampus" ColumnName="IdCampus" />
+                <ScalarProperty Name="IdCarrera" ColumnName="IdCarrera" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="CertificadoBachillerato" ColumnName="CertificadoBachillerato" />
+                <ScalarProperty Name="EstatusPago" ColumnName="EstatusPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

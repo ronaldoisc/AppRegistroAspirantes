@@ -1,0 +1,31 @@
+﻿
+@using AppRegistroAspirantes.Models
+@model BancoModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div class="mb-5 mt-3 card">
+                <div class="card-body p-md-5 rounded-top">
+                    <h1 class="h4 font-weight-bold mb-2 text-gray-800">Registrar un nuevo Banco</h1>
+                    <hr class="my-3" />
+                    @using (Html.BeginForm("Crear", "Banco", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(p => p.Nombre, new { @class = "col-form-label font-size-small font-weight-bolder" })
+                            @Html.TextBoxFor(p => p.Nombre, new { @class = "form-control" })
+                        </div>
+
+                        <div class="d-flex mt-4 justify-content-end">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

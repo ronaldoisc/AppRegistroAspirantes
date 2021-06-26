@@ -1,0 +1,44 @@
+﻿
+@using AppRegistroAspirantes.Models;
+@model List<BancoModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <div class="card shadow mb-4">
+
+        <div class="card-body">
+            <h1 class="h4 mb-2 text-gray-800 font-weight-bold">Bancos registrados</h1>
+            <hr class="my-3" />
+            <div class="table-responsive mt-2">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Acción</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var banco in Model)
+                        {
+                            <tr>
+                                <td>@banco.Id</td>
+                                <td>@banco.Nombre</td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Editar", "Banco", new { Id = banco.Id }, new { @class = "btn btn-success btn-sm" })
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -90,6 +90,23 @@
                     </div>
                 </li>
             }
+            @if (admin != null && (admin.EsCapazDe("CREAR_BANCOS") || admin.EsCapazDe("VER_BANCOS") || admin.EsCapazDe("ACTUALIZAR_BANCOS")))
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOR"
+                       aria-expanded="true" aria-controls="collapseOR">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Bancos</span>
+                    </a>
+                    <div id="collapseOR" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Acciones:</h6>
+                            <a class="collapse-item" href="@Url.Action("Index", "Banco")">Todos los Bancos</a>
+                            <a class="collapse-item" href="@Url.Action("Crear", "Banco")">Crear Banco</a>
+                        </div>
+                    </div>
+                </li>
+            }
 
 
             <!-- Divider -->

@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BancoController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -150,6 +151,7 @@
       <DependentUpon>RegistroAspirantes.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AdministradorModel.cs" />
+    <Compile Include="Models\BancoModel.cs" />
     <Compile Include="Models\Bancos.cs">
       <DependentUpon>RegistroAspirantes.tt</DependentUpon>
     </Compile>
@@ -269,6 +271,9 @@
     <Content Include="Views\Solicitante\Registrar.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Solicitante\Index.cshtml" />
+    <Content Include="Views\Banco\Index.cshtml" />
+    <Content Include="Views\Banco\Crear.cshtml" />
+    <Content Include="Views\Banco\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

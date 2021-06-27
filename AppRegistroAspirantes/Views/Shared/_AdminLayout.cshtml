@@ -72,6 +72,43 @@
                 </li>
             }
 
+            @if (admin != null && (admin.EsCapazDe("CREAR_CARRERAS") || admin.EsCapazDe("VER_CARRERAS") || admin.EsCapazDe("ACTUALIZAR_CARRERAS")))
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCarreras"
+                       aria-expanded="true" aria-controls="collapseCarreras">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Oferta Educativa</span>
+                    </a>
+                    <div id="collapseCarreras" class="collapse" aria-labelledby="headingCarreras" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Acciones:</h6>
+                            @Html.ActionLink("Todas las Carreras", "Index", "OfertaEducativa", null, new { @class = "collapse-item" })
+                            @if (admin.EsCapazDe("CREAR_CARRERAS"))
+                            {
+                                @Html.ActionLink("Agregar", "Crear", "OfertaEducativa", null, new { @class = "collapse-item" })
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+
+            @if (admin != null && (admin.EsCapazDe("VER_SOLICITANTES")))
+            {
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSolicitantes"
+                       aria-expanded="true" aria-controls="collapseSolicitantes">
+                        <i class="fas fa-address-book"></i>
+                        <span>Solicitantes</span>
+                    </a>
+                    <div id="collapseSolicitantes" class="collapse" aria-labelledby="headingSolicitantes" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Acciones:</h6>
+                            @Html.ActionLink("Lista de Solicitantes", "ListaSolicitantes", "Solicitante", null, new { @class = "collapse-item" })
+                        </div>
+                    </div>
+                </li>
+            }
 
             @if (admin != null && (admin.EsCapazDe("CREAR_USUARIOS") || admin.EsCapazDe("VER_USUARIOS") || admin.EsCapazDe("ACTUALIZAR_USUARIOS")))
             {
@@ -360,7 +397,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Tecnológico Nacional de México 2021</span>
                     </div>
                 </div>
             </footer>

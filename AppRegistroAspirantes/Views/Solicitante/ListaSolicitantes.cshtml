@@ -1,0 +1,58 @@
+﻿@using AppRegistroAspirantes.Models
+@{
+    ViewBag.Title = "ListaSolicitantes";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<SolicitanteModel> solicitantes = (List<SolicitanteModel>)ViewBag.solicitantes;
+}
+
+<div class="viewport-header">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb has-arrow">
+            <li class="breadcrumb-item">
+                <a href="/Admin/Index">Inicio</a>
+                <i class="fas fa-chevron-right breadcrumb-icon"></i>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Lista de Solicitantes</li>
+        </ol>
+    </nav>
+</div>
+
+<div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h1 class="h4 mb-2 text-gray-800 font-weight-bold">Lista de solicitantes registrados</h1>
+            <hr class="my-3" />
+            <div class="table-responsive mt-2">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th width="25%">Solicitante</th>
+                            <th width="14%">Teléfonos</th>
+                            <th width="19%">Correo</th>
+                            <th width="22%">Campus Asignado</th>
+                            <th width="20%">Carrera Elegida</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (SolicitanteModel s in solicitantes)
+                        {
+                        <tr>
+                            <td><a href="/Solicitante/Ver/@s.Id">@s.Nombre @s.ApellidoPaterno @s.ApellidoMaterno</a></td>
+                            <td>
+                                <div class="d-flex" style="flex-direction: column!important;">
+                                    <small class="d-flex justify-content-between"><span class="text-muted">Fijo:</span> @s.TelefonoFijo</small>
+                                    <small class="d-flex justify-content-between"><span class="text-muted">Cel.:</span> @s.TelefonoCelular</small>
+                                </div>
+                            </td>
+                            <td>@s.Correo</td>
+                            <td><a href="/Campus/Ver/@s.IdCampus">@s.CampusAsignado</a></td>
+                            <td>@s.Carrera</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

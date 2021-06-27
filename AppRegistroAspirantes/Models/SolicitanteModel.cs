@@ -13,6 +13,7 @@ namespace AppRegistroAspirantes.Models
         public string ApellidoPaterno { get; set; }
         public string ApellidoMaterno { get; set; }
         public string IdGenero { get; set; }
+        public string Genero { get; set; }
         [Display(Name = "Fecha de Nacimiento")]
         [Required]
         [DataType(DataType.Date)]
@@ -21,7 +22,10 @@ namespace AppRegistroAspirantes.Models
         public string CURP { get; set; }
         public byte[] Foto { get; set; }
         public int IdPais { get; set; }
+        [Display(Name = "País")]
+        public string Pais { get; set; }
         public int IdLocalidad { get; set; }
+        public string Localidad { get; set; }
 
         [Display(Name = "CP")]
         [DataType(DataType.PostalCode)]
@@ -30,9 +34,14 @@ namespace AppRegistroAspirantes.Models
         public string TelefonoFijo { get; set; }
         public string TelefonoCelular { get; set; }
         public byte IdGradoEstudios { get; set; }
+        [Display(Name = "Último Grado de Estudios")]
+        public string GradoEstudios { get; set; }
         public string EscuelaProcedencia { get; set; }
         public int IdCampus { get; set; }
+        [Display(Name = "Campus Asignado")]
+        public string CampusAsignado { get; set; }
         public int IdCarrera { get; set; }
+        public string Carrera { get; set; }
         public Nullable<bool> EstatusPago { get; set; }
         [Display(Name = "Fotografía")]
         [Required]

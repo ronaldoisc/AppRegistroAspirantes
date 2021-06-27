@@ -1,0 +1,72 @@
+﻿@using AppRegistroAspirantes.Models
+@using AppRegistroAspirantes.Helpers
+@model UsuarioModel
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mb-5 mt-3 card">
+    <div class="card-body p-md-5 rounded-top">
+        <h1 class="h4 font-weight-bold mb-2 text-gray-800">Registrar un nuevo responsable de campus</h1>
+        <hr class="my-3" />
+        @using (Html.BeginForm("Crear", "Usuario", FormMethod.Post))
+        {
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Nombre)
+                        @Html.TextBoxFor(p => p.Nombre, new { @class = "form-control" })
+                        @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.ApellidoPaterno)
+                        @Html.TextBoxFor(p => p.ApellidoPaterno, new { @class = "form-control" })
+                        @Html.ValidationMessage("ApellidoPaterno", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.ApellidoMaterno)
+                        @Html.TextBoxFor(p => p.ApellidoMaterno, new { @class = "form-control" })
+                        @Html.ValidationMessage("ApellidoMaterno", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Correo)
+                        @Html.TextBoxFor(p => p.Correo, new { @class = "form-control" })
+                        @Html.ValidationMessage("Correo", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.Contrasenia)
+                        @Html.TextBoxFor(p => p.Contrasenia, new { @class = "form-control", type="password" })
+                        @Html.ValidationMessage("Contrasenia", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.TelefonoFijo)
+                        @Html.TextBoxFor(p => p.TelefonoFijo, new { @class = "form-control" })
+                        @Html.ValidationMessage("TelefonoFijo", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.TelefonoCelular)
+                        @Html.TextBoxFor(p => p.TelefonoCelular, new { @class = "form-control" })
+                        @Html.ValidationMessage("TelefonoCelular", new { @class = "text-danger" })
+                    </div>
+                    <div class="mt-3">
+                        @Html.LabelFor(p => p.IdCampus)
+                        @Html.DropDownList("IdCampus", Helpers.ObtenerCampus(), new { @class = "form-control", id = "campus" })
+                        @Html.ValidationMessage("IdCampus", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary mt-3">Crear</button>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    $('#campus').select2({
+        placeholder: 'Selecciona un campus',
+        theme: 'bootstrap'
+    });
+</script>

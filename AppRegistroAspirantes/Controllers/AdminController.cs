@@ -67,8 +67,9 @@ namespace AppRegistroAspirantes.Controllers
          public ActionResult CerrarSesion()
          {
              Session.Remove("ADMINISTRADOR");
-             return RedirectToAction("Login");
-         }
+            //return RedirectToAction("Login");
+            return Redirect(Url.Content("~/Admin/Login"));
+        }
      }
     
 

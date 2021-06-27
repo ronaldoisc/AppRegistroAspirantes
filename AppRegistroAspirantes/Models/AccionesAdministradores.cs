@@ -15,10 +15,10 @@ namespace AppRegistroAspirantes.Models
     public partial class AccionesAdministradores
     {
         public int Id { get; set; }
-        public Nullable<short> IdAdministrador { get; set; }
         public Nullable<int> IdAccion { get; set; }
+        public Nullable<byte> IdRol { get; set; }
     
         public virtual Acciones Acciones { get; set; }
-        public virtual Administradores Administradores { get; set; }
+        public virtual Roles Roles { get; set; }
     }
 }

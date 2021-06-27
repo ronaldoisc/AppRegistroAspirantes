@@ -26,7 +26,7 @@ namespace AppRegistroAspirantes.Models
             {
                 aux = (from item in bd.AccionesAdministradores
                        join ac in bd.Acciones on item.IdAccion equals ac.Id
-                       where item.IdAdministrador == IdRol && ac.Descripcion == accion
+                       where item.IdRol == IdRol && ac.Descripcion == accion
                        select item).ToList().Count > 0 ? true : false;
             }
 

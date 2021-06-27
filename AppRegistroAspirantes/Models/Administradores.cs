@@ -14,12 +14,6 @@ namespace AppRegistroAspirantes.Models
     
     public partial class Administradores
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Administradores()
-        {
-            this.AccionesAdministradores = new HashSet<AccionesAdministradores>();
-        }
-    
         public short Id { get; set; }
         public string Nombre { get; set; }
         public string ApellidoPaterno { get; set; }
@@ -31,8 +25,6 @@ namespace AppRegistroAspirantes.Models
         public Nullable<int> IdCampus { get; set; }
         public byte IdRol { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccionesAdministradores> AccionesAdministradores { get; set; }
         public virtual Campus Campus { get; set; }
         public virtual Roles Roles { get; set; }
     }

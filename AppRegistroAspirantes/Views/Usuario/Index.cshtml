@@ -1,0 +1,41 @@
+﻿@using AppRegistroAspirantes.Models 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    List<UsuarioModel> usuarios = (List<UsuarioModel>)ViewBag.usuarios;
+}
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <h1 class="h4 mb-2 text-gray-800 font-weight-bold">Campus registrados</h1>
+        <hr class="my-3" />
+        <div class="table-responsive mt-2">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th> Correo electrónico</th>
+                        <th>Teléfono fijo</th>
+                        <th>Teléfono celular</th>
+                        <th>Campus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(UsuarioModel usr in usuarios) 
+                    {
+                        <tr>
+                            <td>
+                                <a href="/Usuario/Actualizar/@usr.Id">@usr.Nombre @usr.ApellidoPaterno @usr.ApellidoMaterno</a>
+                            </td>
+                            <td>@usr.Correo</td>
+                            <td>@usr.TelefonoFijo</td>
+                            <td>@usr.TelefonoCelular</td>
+                            <td>@usr.Campus</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

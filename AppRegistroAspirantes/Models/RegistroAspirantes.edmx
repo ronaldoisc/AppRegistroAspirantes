@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RegistroAspirantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RegistroAspirantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Acciones">
           <Key>
             <PropertyRef Name="Id" />
@@ -17,7 +17,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="IdAdministrador" Type="smallint" />
+          <Property Name="IdRol" Type="tinyint" />
           <Property Name="IdAccion" Type="int" />
         </EntityType>
         <EntityType Name="Administradores">
@@ -142,7 +142,7 @@
           <Property Name="CertificadoBachillerato" Type="varbinary(max)" Nullable="false" />
           <Property Name="EstatusPago" Type="bit" />
         </EntityType>
-        <Association Name="FK__AccionesA__IdAcc__5FB337D6">
+        <Association Name="FK__AccionesA__IdAcc__4F7CD00D">
           <End Role="Acciones" Type="Self.Acciones" Multiplicity="0..1" />
           <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,19 +154,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__AccionesA__IdAdm__5EBF139D">
-          <End Role="Administradores" Type="Self.Administradores" Multiplicity="0..1" />
+        <Association Name="FK__AccionesA__IdRol__4E88ABD4">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
           <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Administradores">
+            <Principal Role="Roles">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AccionesAdministradores">
-              <PropertyRef Name="IdAdministrador" />
+              <PropertyRef Name="IdRol" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Administr__IdCam__59063A47">
+        <Association Name="FK__Administr__IdCam__45F365D3">
           <End Role="Campus" Type="Self.Campus" Multiplicity="0..1" />
           <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Administr__IdRol__59FA5E80">
+        <Association Name="FK__Administr__IdRol__46E78A0C">
           <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
           <End Role="Administradores" Type="Self.Administradores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,7 +190,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Campus__IdBanco__412EB0B6">
+        <Association Name="FK__Campus__IdBanco__2E1BDC42">
           <End Role="Bancos" Type="Self.Bancos" Multiplicity="1" />
           <End Role="Campus" Type="Self.Campus" Multiplicity="*" />
           <ReferentialConstraint>
@@ -202,7 +202,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CampusCar__IdCam__44FF419A">
+        <Association Name="FK__CampusCar__IdCam__31EC6D26">
           <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
           <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,7 +214,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CampusCar__IdCar__45F365D3">
+        <Association Name="FK__CampusCar__IdCar__32E0915F">
           <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
           <End Role="CampusCarreras" Type="Self.CampusCarreras" Multiplicity="*" />
           <ReferentialConstraint>
@@ -226,7 +226,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Localidad__IdPai__398D8EEE">
+        <Association Name="FK__Localidad__IdPai__267ABA7A">
           <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
           <End Role="Localidades" Type="Self.Localidades" Multiplicity="*" />
           <ReferentialConstraint>
@@ -238,7 +238,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdCam__5070F446">
+        <Association Name="FK__Solicitan__IdCam__3D5E1FD2">
           <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,7 +250,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdCar__5165187F">
+        <Association Name="FK__Solicitan__IdCar__3E52440B">
           <End Role="Carreras" Type="Self.Carreras" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -262,7 +262,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdGen__4CA06362">
+        <Association Name="FK__Solicitan__IdGen__398D8EEE">
           <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +274,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdGra__4F7CD00D">
+        <Association Name="FK__Solicitan__IdGra__3C69FB99">
           <End Role="GradosEstudio" Type="Self.GradosEstudio" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdLoc__4E88ABD4">
+        <Association Name="FK__Solicitan__IdLoc__3B75D760">
           <End Role="Localidades" Type="Self.Localidades" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Solicitan__IdPai__4D94879B">
+        <Association Name="FK__Solicitan__IdPai__3A81B327">
           <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
           <End Role="Solicitantes" Type="Self.Solicitantes" Multiplicity="*" />
           <ReferentialConstraint>
@@ -324,65 +324,64 @@
           <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Solicitantes" EntityType="Self.Solicitantes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__AccionesA__IdAcc__5FB337D6" Association="Self.FK__AccionesA__IdAcc__5FB337D6">
+          <AssociationSet Name="FK__AccionesA__IdAcc__4F7CD00D" Association="Self.FK__AccionesA__IdAcc__4F7CD00D">
             <End Role="Acciones" EntitySet="Acciones" />
             <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
           </AssociationSet>
-          <AssociationSet Name="FK__AccionesA__IdAdm__5EBF139D" Association="Self.FK__AccionesA__IdAdm__5EBF139D">
-            <End Role="Administradores" EntitySet="Administradores" />
+          <AssociationSet Name="FK__AccionesA__IdRol__4E88ABD4" Association="Self.FK__AccionesA__IdRol__4E88ABD4">
+            <End Role="Roles" EntitySet="Roles" />
             <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
           </AssociationSet>
-          <AssociationSet Name="FK__Administr__IdCam__59063A47" Association="Self.FK__Administr__IdCam__59063A47">
+          <AssociationSet Name="FK__Administr__IdCam__45F365D3" Association="Self.FK__Administr__IdCam__45F365D3">
             <End Role="Campus" EntitySet="Campus" />
             <End Role="Administradores" EntitySet="Administradores" />
           </AssociationSet>
-          <AssociationSet Name="FK__Administr__IdRol__59FA5E80" Association="Self.FK__Administr__IdRol__59FA5E80">
+          <AssociationSet Name="FK__Administr__IdRol__46E78A0C" Association="Self.FK__Administr__IdRol__46E78A0C">
             <End Role="Roles" EntitySet="Roles" />
             <End Role="Administradores" EntitySet="Administradores" />
           </AssociationSet>
-          <AssociationSet Name="FK__Campus__IdBanco__412EB0B6" Association="Self.FK__Campus__IdBanco__412EB0B6">
+          <AssociationSet Name="FK__Campus__IdBanco__2E1BDC42" Association="Self.FK__Campus__IdBanco__2E1BDC42">
             <End Role="Bancos" EntitySet="Bancos" />
             <End Role="Campus" EntitySet="Campus" />
           </AssociationSet>
-          <AssociationSet Name="FK__CampusCar__IdCam__44FF419A" Association="Self.FK__CampusCar__IdCam__44FF419A">
+          <AssociationSet Name="FK__CampusCar__IdCam__31EC6D26" Association="Self.FK__CampusCar__IdCam__31EC6D26">
             <End Role="Campus" EntitySet="Campus" />
             <End Role="CampusCarreras" EntitySet="CampusCarreras" />
           </AssociationSet>
-          <AssociationSet Name="FK__CampusCar__IdCar__45F365D3" Association="Self.FK__CampusCar__IdCar__45F365D3">
+          <AssociationSet Name="FK__CampusCar__IdCar__32E0915F" Association="Self.FK__CampusCar__IdCar__32E0915F">
             <End Role="Carreras" EntitySet="Carreras" />
             <End Role="CampusCarreras" EntitySet="CampusCarreras" />
           </AssociationSet>
-          <AssociationSet Name="FK__Localidad__IdPai__398D8EEE" Association="Self.FK__Localidad__IdPai__398D8EEE">
+          <AssociationSet Name="FK__Localidad__IdPai__267ABA7A" Association="Self.FK__Localidad__IdPai__267ABA7A">
             <End Role="Paises" EntitySet="Paises" />
             <End Role="Localidades" EntitySet="Localidades" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdCam__5070F446" Association="Self.FK__Solicitan__IdCam__5070F446">
+          <AssociationSet Name="FK__Solicitan__IdCam__3D5E1FD2" Association="Self.FK__Solicitan__IdCam__3D5E1FD2">
             <End Role="Campus" EntitySet="Campus" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdCar__5165187F" Association="Self.FK__Solicitan__IdCar__5165187F">
+          <AssociationSet Name="FK__Solicitan__IdCar__3E52440B" Association="Self.FK__Solicitan__IdCar__3E52440B">
             <End Role="Carreras" EntitySet="Carreras" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdGen__4CA06362" Association="Self.FK__Solicitan__IdGen__4CA06362">
+          <AssociationSet Name="FK__Solicitan__IdGen__398D8EEE" Association="Self.FK__Solicitan__IdGen__398D8EEE">
             <End Role="Generos" EntitySet="Generos" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdGra__4F7CD00D" Association="Self.FK__Solicitan__IdGra__4F7CD00D">
+          <AssociationSet Name="FK__Solicitan__IdGra__3C69FB99" Association="Self.FK__Solicitan__IdGra__3C69FB99">
             <End Role="GradosEstudio" EntitySet="GradosEstudio" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdLoc__4E88ABD4" Association="Self.FK__Solicitan__IdLoc__4E88ABD4">
+          <AssociationSet Name="FK__Solicitan__IdLoc__3B75D760" Association="Self.FK__Solicitan__IdLoc__3B75D760">
             <End Role="Localidades" EntitySet="Localidades" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
-          <AssociationSet Name="FK__Solicitan__IdPai__4D94879B" Association="Self.FK__Solicitan__IdPai__4D94879B">
+          <AssociationSet Name="FK__Solicitan__IdPai__3A81B327" Association="Self.FK__Solicitan__IdPai__3A81B327">
             <End Role="Paises" EntitySet="Paises" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RegistroAspirantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -399,10 +398,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdAdministrador" Type="Int16" />
           <Property Name="IdAccion" Type="Int32" />
           <NavigationProperty Name="Acciones" Relationship="Self.FK__AccionesA__IdAcc__5FB337D6" FromRole="AccionesAdministradores" ToRole="Acciones" />
-          <NavigationProperty Name="Administradores" Relationship="Self.FK__AccionesA__IdAdm__5EBF139D" FromRole="AccionesAdministradores" ToRole="Administradores" />
+          <Property Name="IdRol" Type="Byte" />
+          <NavigationProperty Name="Roles" Relationship="RegistroAspirantesModel.FK__AccionesA__IdRol__4E88ABD4" FromRole="AccionesAdministradores" ToRole="Roles" />
         </EntityType>
         <EntityType Name="Administradores">
           <Key>
@@ -418,7 +417,6 @@
           <Property Name="TelefonoCelular" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IdCampus" Type="Int32" />
           <Property Name="IdRol" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="AccionesAdministradores" Relationship="Self.FK__AccionesA__IdAdm__5EBF139D" FromRole="Administradores" ToRole="AccionesAdministradores" />
           <NavigationProperty Name="Campus" Relationship="Self.FK__Administr__IdCam__59063A47" FromRole="Administradores" ToRole="Campus" />
           <NavigationProperty Name="Roles" Relationship="Self.FK__Administr__IdRol__59FA5E80" FromRole="Administradores" ToRole="Roles" />
         </EntityType>
@@ -519,6 +517,7 @@
           <Property Name="Id" Type="Byte" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Administradores" Relationship="Self.FK__Administr__IdRol__59FA5E80" FromRole="Roles" ToRole="Administradores" />
+          <NavigationProperty Name="AccionesAdministradores" Relationship="RegistroAspirantesModel.FK__AccionesA__IdRol__4E88ABD4" FromRole="Roles" ToRole="AccionesAdministradores" />
         </EntityType>
         <EntityType Name="Solicitantes">
           <Key>
@@ -560,18 +559,6 @@
             </Principal>
             <Dependent Role="AccionesAdministradores">
               <PropertyRef Name="IdAccion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__AccionesA__IdAdm__5EBF139D">
-          <End Role="Administradores" Type="Self.Administradores" Multiplicity="0..1" />
-          <End Role="AccionesAdministradores" Type="Self.AccionesAdministradores" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Administradores">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AccionesAdministradores">
-              <PropertyRef Name="IdAdministrador" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -737,10 +724,6 @@
             <End Role="Acciones" EntitySet="Acciones" />
             <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
           </AssociationSet>
-          <AssociationSet Name="FK__AccionesA__IdAdm__5EBF139D" Association="Self.FK__AccionesA__IdAdm__5EBF139D">
-            <End Role="Administradores" EntitySet="Administradores" />
-            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
-          </AssociationSet>
           <AssociationSet Name="FK__Administr__IdCam__59063A47" Association="Self.FK__Administr__IdCam__59063A47">
             <End Role="Campus" EntitySet="Campus" />
             <End Role="Administradores" EntitySet="Administradores" />
@@ -789,7 +772,23 @@
             <End Role="Paises" EntitySet="Paises" />
             <End Role="Solicitantes" EntitySet="Solicitantes" />
           </AssociationSet>
+          <AssociationSet Name="FK__AccionesA__IdRol__4E88ABD4" Association="RegistroAspirantesModel.FK__AccionesA__IdRol__4E88ABD4">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="AccionesAdministradores" EntitySet="AccionesAdministradores" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__AccionesA__IdRol__4E88ABD4">
+          <End Type="RegistroAspirantesModel.Roles" Role="Roles" Multiplicity="0..1" />
+          <End Type="RegistroAspirantesModel.AccionesAdministradores" Role="AccionesAdministradores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AccionesAdministradores">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -807,8 +806,8 @@
           <EntitySetMapping Name="AccionesAdministradores">
             <EntityTypeMapping TypeName="RegistroAspirantesModel.AccionesAdministradores">
               <MappingFragment StoreEntitySet="AccionesAdministradores">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
                 <ScalarProperty Name="IdAccion" ColumnName="IdAccion" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -18,6 +18,7 @@ namespace AppRegistroAspirantes.Models
         public Roles()
         {
             this.Administradores = new HashSet<Administradores>();
+            this.AccionesAdministradores = new HashSet<AccionesAdministradores>();
         }
     
         public byte Id { get; set; }
@@ -25,5 +26,7 @@ namespace AppRegistroAspirantes.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Administradores> Administradores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AccionesAdministradores> AccionesAdministradores { get; set; }
     }
 }

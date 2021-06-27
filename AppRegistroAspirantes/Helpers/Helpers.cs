@@ -100,6 +100,25 @@ namespace AppRegistroAspirantes.Helpers
             return bancos;
         }
 
+        public static List<SelectListItem> ObtenerCampus()
+        {
+            List<SelectListItem> campus = null;
+
+            using (var bd = new RegistroAspirantesEntities())
+            {
+                campus = (from cmp in bd.Campus
+                          select new SelectListItem 
+                          {
+                              Value = cmp.Id.ToString(),
+                              Text = cmp.Nombre
+                          }).ToList();
+            }
+
+            campus.Insert(0, new SelectListItem { Value = null, Text="---Seleccione un campus--" });
+
+            return campus;
+        }
+
         public static byte[] ImgToByteArray(HttpPostedFileBase img)
         {
 

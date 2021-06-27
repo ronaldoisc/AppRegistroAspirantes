@@ -72,20 +72,21 @@
                 </li>
             }
 
-            @if (admin != null && (admin.EsCapazDe("CREAR_CARRERAS") || admin.EsCapazDe("VER_CARRERAS") || admin.EsCapazDe("ACTUALIZAR_CARRERAS")))
+
+            @if (admin != null && (admin.EsCapazDe("CREAR_USUARIOS") || admin.EsCapazDe("VER_USUARIOS") || admin.EsCapazDe("ACTUALIZAR_USUARIOS")))
             {
                 <!-- Nav Item - Pages Collapse Menu For Oferta Educativa -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOE"
                        aria-expanded="true" aria-controls="collapseOE">
-                        <i class="fas fa-clipboard-list"></i>
-                        <span>Oferta Educativa</span>
+                        <i class="fas fa-user"></i>
+                        <span>Usuarios</span>
                     </a>
                     <div id="collapseOE" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <h6 class="collapse-header">Acciones:</h6>
-                            <a class="collapse-item" href="@Url.Action("Index", "OfertaEducativa")">Todas las Carreras</a>
-                            <a class="collapse-item" href="@Url.Action("Crear", "OfertaEducativa")">Crear Carrera</a>
+                            <a class="collapse-item" href="@Url.Action("Index", "Usuario")">Todos los usuarios</a>
+                            <a class="collapse-item" href="@Url.Action("Crear", "Usuario")">Crear usuario</a>
                         </div>
                     </div>
                 </li>

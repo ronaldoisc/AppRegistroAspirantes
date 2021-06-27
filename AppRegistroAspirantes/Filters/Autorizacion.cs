@@ -30,7 +30,7 @@ namespace AppRegistroAspirantes.Filters
                 {
                     var listaAcciones = from item in bd.AccionesAdministradores
                                         join accion in bd.Acciones on item.IdAccion equals accion.Id
-                                        where item.IdAdministrador == admin.IdRol && accion.Descripcion == this.accion
+                                        where item.IdRol == admin.IdRol && accion.Descripcion == this.accion
                                         select item;
                     if (listaAcciones.ToList().Count < 1)
                     {

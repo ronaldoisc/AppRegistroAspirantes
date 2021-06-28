@@ -17,10 +17,10 @@ namespace AppRegistroAspirantes.Models
         [Display(Name = "Fecha de Nacimiento")]
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
         public DateTime FechaNacimiento { get; set; }
         public string CURP { get; set; }
-        public byte[] Foto { get; set; }
+       
         public int IdPais { get; set; }
         [Display(Name = "País")]
         public string Pais { get; set; }
@@ -43,30 +43,22 @@ namespace AppRegistroAspirantes.Models
         public int IdCarrera { get; set; }
         public string Carrera { get; set; }
         public Nullable<bool> EstatusPago { get; set; }
+
+        public byte[] Foto { get; set; }
         [Display(Name = "Fotografía")]
         [Required]
         public HttpPostedFileBase Imagen { get; set; }
-        public virtual Campus Campus { get; set; }
-        public virtual Carreras Carreras { get; set; }
-        public virtual Generos Generos { get; set; }
-        public virtual GradosEstudio GradosEstudio { get; set; }
-        public virtual Localidades Localidades { get; set; }
-        public virtual Paises Paises { get; set; }
-
-
-       
-
-
-
+        
         [Display(Name = "Identificación")]
         [Required]
         public HttpPostedFileBase INE { get; set; }
 
+     
+        public byte[] Identificacion { get; set; }
+
         [Display(Name = "Certificado Bachillerato")]
         [Required]
         public HttpPostedFileBase Certificado { get; set; }
-
-        public byte[] Identificacion { get; set; }
         public byte[] CertificadoBachillerato { get; set; }
 
 

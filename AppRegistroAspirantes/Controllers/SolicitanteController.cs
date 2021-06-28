@@ -15,6 +15,32 @@ namespace AppRegistroAspirantes.Controllers
             return View();
         }
 
+        List<CampusAsignadoModel> listacampus = null;
+        public ActionResult getCampus(int IdCarrera)
+        {
+
+
+            using (var bd = new RegistroAspirantesEntities())
+            {
+                listacampus = (from campusCarrera in bd.CampusCarreras
+                               join campus in bd.Campus
+                               on campusCarrera.IdCampus
+                               equals campus.Id
+
+                               where campusCarrera.IdCarrera == IdCarrera
+                               select new CampusAsignadoModel
+                               {
+                                  Nombre=campus.Nombre,
+                                   Id=campus.Id
+                                   
+                                    
+
+                               }).ToList();
+            }
+
+            return Json(listacampus, JsonRequestBehavior.AllowGet);
+        }
+
 
         List<CarrerasModel> listaCarreras = null;
         public ActionResult Registrar()
@@ -60,27 +86,27 @@ namespace AppRegistroAspirantes.Controllers
                 {
                     Solicitantes oSolicitante = new Solicitantes();
 
-                    oSolicitante.Nombre = model.Nombre;
-                    oSolicitante.ApellidoPaterno = model.ApellidoPaterno;
-                    oSolicitante.ApellidoMaterno = model.ApellidoMaterno;
-                    oSolicitante.IdGenero = model.IdGenero;
-                    oSolicitante.FechaNacimiento = model.FechaNacimiento;
-                    oSolicitante.CURP = model.CURP;
-                    oSolicitante.Foto = Helpers.Helpers.ImgToByteArray(model.Imagen);
-                    oSolicitante.IdPais = model.IdPais;
-                    oSolicitante.IdLocalidad = model.IdLocalidad;
-                    oSolicitante.Correo = model.Correo;
-                    oSolicitante.TelefonoFijo = model.TelefonoFijo;
-                    oSolicitante.TelefonoCelular = model.TelefonoCelular;
-                    oSolicitante.IdGradoEstudios = model.IdGradoEstudios;
-                    oSolicitante.EscuelaProcedencia = model.EscuelaProcedencia;
-                    oSolicitante.Identificacion = Helpers.Helpers.PDFToByteArray(model.INE);
-                    oSolicitante.CertificadoBachillerato = Helpers.Helpers.PDFToByteArray(model.Certificado);
-                    oSolicitante.IdCarrera = model.IdCarrera;
-                    oSolicitante.IdCampus = 1;
-                    oSolicitante.EstatusPago = false;
-                    bd.Solicitantes.Add(oSolicitante);
-                    bd.SaveChanges();
+                oSolicitante.Nombre = model.Nombre;
+                oSolicitante.ApellidoPaterno = model.ApellidoPaterno;
+                oSolicitante.ApellidoMaterno = model.ApellidoMaterno;
+                oSolicitante.IdGenero = model.IdGenero;
+                oSolicitante.FechaNacimiento = model.FechaNacimiento;
+                oSolicitante.CURP = model.CURP;
+                oSolicitante.Foto = Helpers.Helpers.ImgToByteArray(model.Imagen);
+                oSolicitante.IdPais = model.IdPais;
+                oSolicitante.IdLocalidad = model.IdLocalidad;
+                oSolicitante.Correo = model.Correo;
+                oSolicitante.TelefonoFijo = model.TelefonoFijo;
+                oSolicitante.TelefonoCelular = model.TelefonoCelular;
+                oSolicitante.IdGradoEstudios = model.IdGradoEstudios;
+                oSolicitante.EscuelaProcedencia = model.EscuelaProcedencia;
+                oSolicitante.Identificacion = Helpers.Helpers.PDFToByteArray(model.INE);
+                oSolicitante.CertificadoBachillerato = Helpers.Helpers.PDFToByteArray(model.Certificado);
+                oSolicitante.IdCarrera = model.IdCarrera;
+                oSolicitante.IdCampus = model.IdCampus;
+                oSolicitante.EstatusPago = false;
+                bd.Solicitantes.Add(oSolicitante);
+                bd.SaveChanges();
 
                 
             }
@@ -189,6 +215,23 @@ namespace AppRegistroAspirantes.Controllers
             using (var bd = new RegistroAspirantesEntities())
             {
                 byte[] byteArray = bd.Solicitantes.Find(id).Foto;
+                if (byteArray != null)
+                {
+                    return new FileContentResult(byteArray, "image/jpeg");
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+        }
+
+        public FileContentResult GetImgCarreras(int id)//convertimos el arrreglo de bytes a imagen para mostrarla
+        {
+            using (var bd = new RegistroAspirantesEntities())
+            {
+                byte[] byteArray = bd.Carreras.Find(id).Img;
                 if (byteArray != null)
                 {
                     return new FileContentResult(byteArray, "image/jpeg");

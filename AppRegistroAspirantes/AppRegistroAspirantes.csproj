@@ -201,11 +201,13 @@
     <Compile Include="Models\Solicitantes.cs">
       <DependentUpon>RegistroAspirantes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CampusAsignadoModel.cs" />
     <Compile Include="Models\UsuarioModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\MisEstilos.css" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -221,7 +223,8 @@
       <DependentUpon>RegistroAspirantes.edmx</DependentUpon>
       <LastGenOutput>RegistroAspirantes.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts2\Formulario.js" />
+    <Content Include="Scripts2\AsiganarCampus.js" />
+    <Content Include="Scripts2\FormStep.js" />
     <Content Include="Scripts2\Locacion.js" />
     <Content Include="Scripts\app.js" />
     <EntityDeploy Include="Models\RegistroAspirantes.edmx">

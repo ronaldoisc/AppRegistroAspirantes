@@ -1,0 +1,27 @@
+﻿.contenedor-steps {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: lightgray;
+}
+.contenedor-steps .step {
+        margin-right: 2rem;
+        font-size: 1.1rem;
+    }
+
+strong, i {
+    font-weight: bold;
+}
+
+strong {
+    color: deeppink;
+}
+
+i {
+    color: grey;
+}
+
+.step.active {
+    font-weight: bold;
+}

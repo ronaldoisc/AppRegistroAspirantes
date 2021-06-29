@@ -1,0 +1,20 @@
+﻿body::before {
+    display: block;
+    content: '';
+    height: 60px;
+}
+
+@media (min-width: 768px) {
+    .news-input {
+        width: 50%;
+    }
+}
+
+.text-color-blue-tec {
+    color: #224885;
+}
+
+.bg-blue-tec {
+    background-color: #224885;
+    border-color: #224885;
+}

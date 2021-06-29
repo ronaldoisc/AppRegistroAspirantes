@@ -1,31 +1,313 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    Layout = null;
+    ViewBag.Title = "Educación a Distancia";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+          integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/LandingPage.css">
+    <title>Frontend Bootcamp</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
+        <div class="container">
+            <a href="">
+                <img src="http://internacional.tecnm.ml/images/logo_header_tecnm_internacional.png"
+                     alt="Logo TecNM" class="img-fluid">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Requisitos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Campus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Oferta Educativa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Solicitante/Registrar" class="nav-link">Proceso Admisión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Admin" target="_blank" class="nav-link">Administradores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Inicio -->
+    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container mt-5">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                    <h1>Se parte de la <span class="text-color-blue-tec">Comunidad Tecnológica</span></h1>
+                    <p class="lead my-4">
+                        Estudia en la Institución de Educación Superior más grande de LatinoAmérica, a
+                        distancia y desde cualquier lugar. Más de 70 años formando profesionistas con calidad y
+                        excelencia educativa
+                    </p>
+                    <a href="/Solicitante/Registrar" class="btn btn-primary bg-blue-tec btn-lg mb-2">Inicia el Proceso de Admisión</a>
+                </div>
+                <div style="width: 5%;"></div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="~/Content/img/Comunidad.svg" alt="comunidad">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-blue-tec text-light p-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0">Mántente al día sobre el TecNM</h3>
+                <div class="input-group news-input">
+                    <input type="text" class="form-control" placeholder="email@example.com">
+                    <button class="btn btn-dark btn-lg" type="button">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarjetas Info -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <div class="card bg-dark text-light h-100">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3"><i class="bi bi-laptop"></i></div>
+                            <h3 class="card-title mb-3">Modalidad a distancia</h3>
+                            <p class="card-text mb-3">
+                                Se cuenta con el acompañamiento de un asesor y materiales
+                                educativos
+                                digitales estandarizados con la opción de tener sesiones de videoconferencia
+                            </p>
+                            <a href="#" class="btn btn-primary bg-blue-tec">Leer Más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-blue-tec text-light w-100 rounded text-center">
+                        <div class="h1 mb-3"><i class="fa fa-list"></i></div>
+                        <h3 class="card-title mb-3">Convocatorias</h3>
+                        <p class="card-text mb-3">
+                            Lanzamiento de las convocatorias para los procesos de admisión a todas
+                            las
+                            carreras disponibles en modalidad a distancia en nuestro país en los 254 campus del
+                            Tecnológico Nacional de México.
+                        </p>
+                        <button class="btn btn-dark" type="button">Leer Más</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-dark text-light w-100 rounded text-center">
+                        <div class="h1 mb-3"><i class="bi bi-people"></i></div>
+                        <h3 class="card-title mb-3">Admisión</h3>
+                        <p class="card-text mb-3">
+                            Lanzamiento de las convocatorias para los procesos de admisión a todas
+                            las
+                            carreras disponibles en modalidad a distancia en nuestro país en los 254 campus del
+                            Tecnológico Nacional de México.
+                        </p>
+                        <button class="btn btn-primary bg-blue-tec" type="button">Leer Más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Pasos -->
+    <!-- Inicio Proceso -->
+    <section class="p-5" id="procesoAdmision">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="~/Content/img/documentos.svg" class="img-fluid d-sm-block" alt="fundamentals">
+                </div>
+                <div class="col-md p-5">
+                    <h2>Proceso de Admisión</h2>
+                    <p class="lead">
+                        Incia el proceso de manera sencilla, comienza con el registro de tus datos personales y
+                        documentos de manera digital.
+                    </p>
+                    <p>
+                        Todos los documentos elaborados en un idioma distinto al español deberán incluir la traducción
+                        correspondiente, realizada por un organismo reconocido por un perito oficial certificado.
+                    </p>
+                    <a href="#" class="btn btn-light mt-3">
+                        <i class="bi bi-chevron-right"></i>Más sobre documentos
+                        solicitados
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Oferta Educativa -->
+    <section class="p-5 bg-dark text-light" id="ofertaEducativa">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md p-5">
+                    <h2>Revisa la Oferta Educativa y Campus</h2>
+                    <p class="lead">
+                        Así tendrás una visión más clara sobre la carrera que deseas estudiar con nosotros, y los campus
+                        que ofertan dicha carrera.
+                    </p>
+                    <p>
+                        Durante el proceso de admisión, tendrás que elegir una carrera, al mismo tiempo serás asignado a
+                        un campus que cuente con la carrera elegida y a partir de ahí continuar con el proceso con el
+                        responsable del campus al que fuiste asignado.
+                    </p>
+                    <a href="#" class="btn btn-light mt-3"><i class="bi bi-chevron-right"></i>Oferta Educativa</a>
+                </div>
+                <div class="col-md">
+                    <img src="~/Content/img/oferta_educativa.svg" class="img-fluid d-sm-block" alt="oferta_educativa">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de Proceso -->
+    <section class="p-5" id="finProceso">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="~/Content/img/online_learning.svg" class="img-fluid d-sm-block" alt="educacion_distancia">
+                </div>
+                <div class="col-md p-5">
+                    <h2>Finaliza tu Registro</h2>
+                    <p class="lead">
+                        Una vez concluido el proceso de registro, revisa las instrucciones recibidas.
+                    </p>
+                    <p>
+                        Recibirás los datos completos del campus al que fuiste asignado, así como los datos de contacto del responsable del mismo. Realiza el pago de tu inscripción y ¡comienza esta nueva etapa en tu carrera educativa!
+                    </p>
+                    <a href="/Solicitante/Registrar" class="btn btn-light mt-3"><i class="bi bi-chevron-right"></i>Iniciar proceso de Admisión</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas -->
+    <section class="p-5" id="preguntas">
+        <div class="container">
+            <h2 class="text-center mb-4">Preguntas Frecuentes</h2>
+            <div class="accordion accordion-flush" id="accordionFlushQuestions">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Por definir...
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                         data-bs-parent="#accordionFlushQuestions">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                            beatae fuga animi distinctio perspiciatis adipisci velit maiores totam tempora accusamus
+                            modi explicabo accusantium consequatur, praesentium rem quisquam molestias at quos vero.
+                            Officiis ad velit doloremque at. Dignissimos praesentium necessitatibus natus corrupti cum
+                            consequatur aliquam! Minima molestias iure quam distinctio velit.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Por definir...
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                         data-bs-parent="#accordionFlushQuestions">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                            beatae fuga animi distinctio perspiciatis adipisci velit maiores totam tempora accusamus
+                            modi explicabo accusantium consequatur, praesentium rem quisquam molestias at quos vero.
+                            Officiis ad velit doloremque at. Dignissimos praesentium necessitatibus natus corrupti cum
+                            consequatur aliquam! Minima molestias iure quam distinctio velit.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                aria-controls="flush-collapseThree">
+                            Por definir...
+                        </button>
+                    </h2>
+                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                         aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushQuestions">
+                        <div class="accordion-body">
+                            Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                            body. Nothing more exciting happening here in terms of content, but just filling up the
+                            space to make it look, at least at first glance, a bit more representative of how this would
+                            look in a real-world application.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFour" aria-expanded="false"
+                                aria-controls="flush-collapseFour">
+                            Por definir...
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour"
+                         data-bs-parent="#accordionFlushQuestions">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+                            beatae fuga animi distinctio perspiciatis adipisci velit maiores totam tempora accusamus
+                            modi explicabo accusantium consequatur, praesentium rem quisquam molestias at quos vero.
+                            Officiis ad velit doloremque at. Dignissimos praesentium necessitatibus natus corrupti cum
+                            consequatur aliquam! Minima molestias iure quam distinctio velit.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseFive" aria-expanded="false"
+                                aria-controls="flush-collapseFive">
+                            Por definir...
+                        </button>
+                    </h2>
+                    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive"
+                         data-bs-parent="#accordionFlushQuestions">
+                        <div class="accordion-body">
+                            Placeholder content for this accordion, which is intended to
+                            demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
+                            body. Nothing more exciting happening here in terms of content, but just filling up the
+                            space to make it look, at least at first glance, a bit more representative of how this would
+                            look in a real-world application.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

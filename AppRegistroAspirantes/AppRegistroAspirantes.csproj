@@ -207,6 +207,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\img\campus.svg" />
+    <Content Include="Content\img\Comunidad.svg" />
+    <Content Include="Content\img\documentos.svg" />
+    <Content Include="Content\img\oferta_educativa.svg" />
+    <Content Include="Content\img\online_learning.svg" />
+    <Content Include="Content\img\proffesor.svg" />
+    <Content Include="Content\LandingPage.css" />
     <Content Include="Content\MisEstilos.css" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
